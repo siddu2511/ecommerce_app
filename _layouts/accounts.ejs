@@ -1,0 +1,33 @@
+
+
+  <div class="container con">
+    <div class="message">
+        <h2>Accounts</h2>
+        <a href="/admin/pages/add-page"> <button class="btn">Add a new Account</button> </a>
+        <br><br>
+        <div class="small-container cart-page">
+            <table>
+                <thead>
+                    <tr class="home">
+                        <th>Title</th>                      
+                        <th>Edit</th>                      
+                        <th>Delete</th>                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <%  pages.forEach(function(page) {  %>
+                        <tr id="id_<%= page._id %>" >
+                            <td> <%= page.title %> </td>
+                            <td> <a href="/admin/pages/edit-page/<%= page._id %>">Edit</a></td>
+                            <% if(page.slug == "home") { %>
+                                <td></td>
+                             <% } else { %>
+                            <td> <a href="/admin/pages/delete-page/<%= page._id %>">Delete</a></td>
+                            <% }; %>
+                        </tr>
+                    <% }); %>    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

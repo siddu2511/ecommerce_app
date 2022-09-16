@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('_layouts/head'); %>
+</head>
+<body>
+
+<header>
+  <%- include('_layouts/login'); %>
+</header>
+
+<main>
+  <div class>
+    <!-- <h1>This is great</h1>
+    <p>Welcome to templating using EJS</p> -->
+  </div>
+</main>
+
+<footer>
+  <%- include('_layouts/footer'); %>
+</footer>
+
+<script>
+  var menuitems = document.getElementById("menuitems");
+  menuitems.style.maxHeight = "0px";
+  function menutoggle(){
+      if( menuitems.style.maxHeight == "0px")
+      {
+          menuitems.style.maxHeight = "200px"
+      }
+      else{
+
+      menuitems.style.maxHeight = "0px"
+      }
+  }
+</script>
+
+<script>
+  var LoginForm = document.getElementById("LoginForm");
+  var RegForm = document.getElementById("RegForm");
+  var Indicator = document.getElementById("Indicator");
+
+  function register() {
+    RegForm.style.transform = "translateX(0px)";
+    LoginForm.style.transform = "translateX(0px)"
+    Indicator.style.transform = "translateX(100px)"
+  }
+  function login() {
+    RegForm.style.transform = "translateX(300px)";
+    LoginForm.style.transform = "translateX(300px)"
+    Indicator.style.transform = "translateX(0px)"
+  }
+
+</script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,97 @@
+
+
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="/"><img class="lg" src="../images/Capture.PNG" alt=""></a>
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <% pages.forEach(function(page) { %>
+                          <% if (page.slug == "home") { %>
+                              <li><a href="/"><%= page.title %></a></li>
+                        <%} else {%>
+                        <li><a href="/<%= page.slug %>"><%= page.title %></a></li>
+                        <% } %>
+                   <% }); %>
+                   <% if(user) { %>
+                    <li>
+                        <a href="/cart/checkout">My Cart(
+                            <%if(typeof cart !== "undefined") { %>
+                                <%= cart.length %>
+                            <% } else { %>
+                                0
+                                <% } %>
+                        )</a>
+                    </li>
+                    <li>
+                        <a href="/users/logout">Logout</a>
+                    </li>
+                    <% } else { %>
+                   <li>
+                    <a href="/users/register">Login</a>
+                </li>
+                <% } %>
+                </ul>
+            </nav>
+            <% if(user) { %>
+                <a href="/cart/checkout"><img src="/images/cart.jpg" width="60px" height= "60px" class="cart-logo
+                    "></a> 
+                <% } %>
+
+            <img src="/images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+</div>
+    
+
+
+
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col2">
+                <img src="/images/bg.png" alt="">
+            </div>
+            <div class="col2">
+                
+                <div class="form-container">
+                    
+                    <div class="form-btn">
+                        <span onclick="login()">Login</span>
+                        <span onclick="register()">Register </span>
+                        <hr id="Indicator">
+                        
+                    </div>
+                    <%- messages('messages', locals) %>
+                    <form action="/users/login" id="LoginForm" method="POST">
+                        <input type="text" name="username"  placeholder="Username">
+                        <input type="password" name="password"  placeholder="Enter your Password">
+                        <button type="submit" class="btn">Login</button>
+                        <a href="">Forgot password</a>
+                    </form>
+                    <form method="POST" action="/users/register" id="RegForm">
+                        <input type="text" name="name"  placeholder="Name">
+                        <input type="text" name="username"  placeholder="Username">
+                        <input type="text" name="email" placeholder="Enter your Email ID">
+                        
+                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="password2" placeholder="Confirm Password">
+                        <button type="submit" class="btn">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <% if(errors) {%>
+        <% errors.forEach(function(error) { %>
+            <div class="alert alert-danger">
+                <%= error.mag %>
+            </div>
+            <% });%>
+                <% }%>

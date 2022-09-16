@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SidduStore</title>
+    <link rel="stylesheet" href="/SidduStore.css">
+    <style>
+        .center {
+            color: black;
+            text-align: center;
+            font-size: 53px;
+        }
+        .contact {
+        margin-top: 15px;
+    }
+
+    .contact-box input,
+    .contact-box textarea,
+    .contact-box .btn {
+        width: 100%;
+        padding: 0.2rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .contact-box {
+        display: flex;
+        width: 40%;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-direction: column;
+
+    }
+
+    .contact-box form {
+        width: 100%;
+    }
+
+    .submit {
+        display: flex;
+        margin: auto;
+        margin-top: 3px;
+        padding: 6px;
+        margin-bottom: 5px;
+    }
+
+    .submit:hover {
+        cursor: pointer;
+    }
+
+    .form-group label {
+        font-size: 18px;
+
+    }
+
+    .form-group {
+        margin-top: 5px;
+    }
+
+    #imgPreview{
+        margin: 20px;
+    }
+
+    #noimage{
+        height: 100px;
+        width: 100px;
+    }
+
+
+    ul.gallery{
+        padding: 0px;
+    }
+
+    ul.gallery li:first-child{
+        margin-left: 0px;
+    }
+
+    ul.gallery li{
+        margin: 20px;
+        display: inline-block;
+        list-style: none;
+    }
+
+    </style>
+    
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href=""><img class="lg" src="/images/Capture.PNG" alt=""></a>
+                </div>
+                <nav>
+                    <ul id="menuitems">
+                        <li><a href="/admin/pages">Pages</a></li>
+                        <li><a href="/admin/categories">Category</a></li>
+                        <li><a href="/admin/products">Products</a></li>
+
+                    </ul>
+                </nav>
+                <a href="cart.html"><img src="/images/cart.jpg" width="60px" height= "60px" class="cart-logo
+                    "></a>
+                <img src="/images/menu.png" class="menu-icon" onclick="menutoggle()">
+            </div>
+        </div>
+      </div>
+    
+

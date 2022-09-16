@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../_layouts/adminheader'); %>
+</head>
+<body>
+
+<header>
+  <%- include('../_layouts/editCategory'); %>
+</header>
+
+<main>
+  <div class>
+    <!-- <h1>This is great</h1>
+    <p>Welcome to templating using EJS</p> -->
+  </div>
+</main>
+
+<footer>
+  <%- include('../_layouts/footer'); %>
+</footer>
+
+<script>
+  var menuitems = document.getElementById("menuitems");
+  menuitems.style.maxHeight = "0px";
+  function menutoggle(){
+      if( menuitems.style.maxHeight == "0px")
+      {
+          menuitems.style.maxHeight = "200px"
+      }
+      else{
+
+      menuitems.style.maxHeight = "0px"
+      }
+  }
+</script>
+
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,301 @@
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="/"><img class="lg" src="../images/Capture.PNG" alt=""></a>
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <% pages.forEach(function(page) { %>
+                          <% if (page.slug == "home") { %>
+                              <li><a href="/"><%= page.title %></a></li>
+                        <%} else {%>
+                        <li><a href="/<%= page.slug %>"><%= page.title %></a></li>
+                        <% } %>
+                   <% }); %>
+                   <% if(user) { %>
+                    <li>
+                        <a href="/cart/checkout">My Cart(
+                            <%if(typeof cart !== "undefined") { %>
+                                <%= cart.length %>
+                            <% } else { %>
+                                0
+                                <% } %>
+                        )</a>
+                    </li>
+                    <li>
+                        <a href="/users/logout">Logout</a>
+                    </li>
+                    <% } else { %>
+                   <li>
+                    <a href="/users/register">Login</a>
+                </li>
+                <% } %>
+                </ul>
+            </nav>
+            <% if(user) { %>
+                <a href="/cart/checkout"><img src="/images/cart.jpg" width="60px" height= "60px" class="cart-logo
+                    "></a> 
+                <% } %>
+
+            
+
+            <img src="/images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+      <div class="row">
+          <div class="col2">
+            <% if(user) { %>
+                <h2> Welcome <%= user.username %> <i class="fa fa-smile-o"></i> </h2>
+                <% } %>
+              <h1>Give Your Workout <br> A New Style!</h1>
+              <p>Style isn’t about what you wear. It’s about how you live. It's about consistency. <br> Beauty comes when fashion succeeds.
+                  </p>
+              <a href="products.html" class="btn">Explore Now &#8594 </a>
+          </div>
+          <div class="col2">
+              <img class="bg" src="../images/bg.png" alt="">
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="categories">
+  <div class="small-container">
+      <div class="row">
+          <div class="col3"><img src="../images/cat1 (1).jpg" alt=""></div>
+          <div class="col3"><img src="../images/cat1 (3).jpg" alt=""></div>
+          <div class="col3"><img src="../images/cat1 (4).jpg" alt=""></div>
+      </div>
+  </div>
+</div>
+
+
+<div class="small-container">
+  <h2 class="title">Featured Products</h2>
+  <div class="row">
+
+      <div class="col4"><img src="../images/products/p2.PNG" alt="">
+          <h4>USPA Blue T-shirt</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$20.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p4.PNG" alt="">
+          <h4>USPA Blue Shirt</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$30.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p7.PNG" alt="">
+          <h4>USPA Grey Hoodie</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p10.PNG" alt="">
+          <h4>USPA Black Hoodie</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$40.00</p>
+      </div>
+      
+  </div>
+
+  <h2 class="title">Latest Products</h2>
+  <div class="row">
+
+      <div class="col4"><img src="../images/products/p12.PNG" alt="">
+          <h4>USPA Black Hoodie</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$40.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p9.PNG" alt="">
+          <h4>USPA Black Hoodie</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$40.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p1.PNG" alt="">
+          <h4>USPA Black Hoodie</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$40.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p5.PNG" alt="">
+          <h4>USPA Black Hoodie</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$40.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p2.PNG" alt="">
+          <h4>USPA Blue T-shirt</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$20.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p4.PNG" alt="">
+          <h4>USPA Blue Shirt</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$30.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p7.PNG" alt="">
+          <h4>USPA Grey Hoodie</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$50.00</p>
+      </div>
+      <div class="col4"><img src="../images/products/p10.PNG" alt="">
+          <h4>USPA Black Hoodie</h4>
+          <div class="rating">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star-o"></i>
+          </div>
+          <p>$40.00</p>
+      </div>
+  </div>
+
+</div>
+
+<div class="offer">
+  <div class="small-container">
+      <div class="row">
+          <div class="col2">
+              <img src="../images/offer.png" class="offer-img">
+          </div>
+          <div class="col2">
+              <h2>Exclusively Available on SidduStore</h2>
+              <h1>Apple iwatch series 4</h1>
+              <h4>A watch needn't just be something that tells you the time. Designed and engineered to help you be more active, healthy and connected, the Apple Watch Series 4. The Series 4 is the latest generation of this product line, and it adds several features that sound great on paper. Wireless service plan required for cellular service. Apple Watch and iPhone service provider must be the same. Not available with all service providers. Not all service providers support enterprise accounts or prepaid plans; check with your employer and service provider. Some legacy plans may not be compatible. Roaming is not available. </h4>
+              <a href="https://www.reliancedigital.in/wearable-technology/c/S101722?searchQuery=Apple%20Watch:relevance" 
+              target="_blank" class="btn">Buy Now &#8594</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="testimonial">
+  <div class="small-container">
+      <div class="row">
+          
+          <div class="col3">
+              <i class="fa fa-quote-left"></i>
+              <p>
+                  "I've always loved buying in SidduStore, so it's a dream come true to be the brand's newest ambassador for SidduStore. Not only because SidduStore stands for strong, nice service but also because it encourages e-commerce to be their best selves," Selena said.</p>
+              <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+              </div>
+              <img class="celeb" src="../images/selena.PNG" alt="">
+              <h3>Selena Gomez</h3>
+          </div>
+          <div class="col3">
+              <i class="fa fa-quote-left"></i>
+              <p>
+                  "I've always loved buying in SidduStore, so it's a dream come true to be the brand's newest ambassador for SidduStore. Not only because SidduStore stands for strong, nice service but also because it encourages e-commerce to be their best selves," Emma Watson said.</p>
+              <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+              </div>
+              <img class="celeb" src="../images/emma.jpg" alt="">
+              <h3>Emma Watson</h3>
+          </div>
+          <div class="col3">
+              <i class="fa fa-quote-left"></i>
+              <p>
+                  "I've always loved buying in SidduStore, so it's a dream come true to be the brand's newest ambassador for SidduStore. Not only because SidduStore stands for strong, nice service but also because it encourages e-commerce to be their best selves," Tony Stark said.</p>
+              <div class="rating">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+              </div>
+              <img class="celeb" src="../images/tony.jpg" alt="">
+              <h3>Robert Downey Jr.</h3>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="brands">
+  <div class="small-container">
+      <div class="row">
+          <div class="col5"><img src="../images/brands/b1 (1).png" alt=""></div>
+          <div class="col5"><img src="../images/brands/b1 (2).png" alt=""></div>
+          <div class="col5"><img src="../images/brands/b1 (3).png" alt=""></div>
+          <div class="col5"><img src="../images/brands/b1 (4).png" alt=""></div>
+          <div class="col5"><img src="../images/brands/b1 (5).png" alt=""></div>
+          <div class="col5"><img src="../images/brands/b1 (6).png" alt=""></div>
+          <div class="col5"><img src="../images/brands/b1 (7).png" alt=""></div>
+          <div class="col5"><img src="../images/brands/b1 (8).png" alt=""></div>
+      </div>
+  </div>
+</div>
+

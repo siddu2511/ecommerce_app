@@ -1,0 +1,165 @@
+
+
+
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="/"><img class="lg" src="../images/Capture.PNG" alt=""></a>
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <% pages.forEach(function(page) { %>
+                          <% if (page.slug == "home") { %>
+                              <li><a href="/"><%= page.title %></a></li>
+                        <%} else {%>
+                        <li><a href="/<%= page.slug %>"><%= page.title %></a></li>
+                        <% } %>
+                   <% }); %>
+                   <% if(user) { %>
+                    <li>
+                        <a href="/cart/checkout">My Cart(
+                            <%if(typeof cart !== "undefined") { %>
+                                <%= cart.length %>
+                            <% } else { %>
+                                0
+                                <% } %>
+                        )</a>
+                    </li>
+                    <li>
+                        <a href="/users/logout">Logout</a>
+                    </li>
+                    <% } else { %>
+                   <li>
+                    <a href="/users/register">Login</a>
+                </li>
+                <% } %>
+                </ul>
+            </nav>
+            <% if(user) { %>
+                <a href="/cart/checkout"><img src="/images/cart.jpg" width="60px" height= "60px" class="cart-logo
+                    "></a> 
+                <% } %>
+
+            <img src="/images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+</div>
+    
+<div class="ajaxbg">
+    <div class="ajaxinner">
+        <h3>You are now redirected to PAYPAL</h3>
+        <img src="/images/ajax.gif" alt="" height="50px">
+
+    </div>
+</div>
+<%- messages('messages', locals) %>
+
+
+
+<% if(typeof cart !== "undefined") { %>
+<div class="small-container cart-page">
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+            <th>Subtotal</th>
+        </tr>
+
+        <% var total = 0; %>
+
+        <% cart.forEach(function(product){ %>
+
+        <% var sub = parseFloat(product.qty * product.price).toFixed(2) %> 
+         
+        <% total += +sub %>
+
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="<%= product.image %>" alt="">
+                    </div>
+                </td>
+                <td><%=  product.title  %></td>
+                <td><%=  product.price  %></td>
+                <td><%= product.title %> <i class="fa fa-times"></i> <%=  product.qty  %></td>
+                <td>
+                    <a href="/cart/update/<%= product.title %>?action=add">+</a> &nbsp
+                    <a href="/cart/update/<%= product.title %>?action=remove">-</a> &nbsp
+                    <a href="/cart/update/<%= product.title %>?action=clear">Clear</a> &nbsp
+                </td>
+                <td>$<%=  sub  %></td>
+            </tr>
+
+
+            <%});%>
+
+        
+    </table>
+
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>Subtotal</td>
+                <td> $<%= parseFloat(total).toFixed(2) %></td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>$7.00</td>
+
+            </tr>
+            <tr>
+                <td>Shipping</td>
+                <td>$5.00</td>
+
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td> $<%= parseFloat(total + 12.00).toFixed(2) %> </td>
+            </tr>
+            
+        </table>
+    </div>
+    <div class="cart-btn">
+        <a href="#" class="buynow"><button class="btn buy buynow">Proceed to checkout</button></a>
+        
+    </div>
+    <div class="cart-btn">
+        <a href="/cart/clear" class="clearcart"><button class="btn ">Clear Cart</button></a>
+       
+    </div>
+</div>
+
+<% } else { %>
+
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+        </table>
+    </div>  
+
+    <div class="emptyCart">
+        <h1>Your cart is empty</h1>
+    </div>
+
+    
+    <% } %>
+
+
+
+
+
+
+
+
+
+
+    
+

@@ -1,0 +1,90 @@
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="/"><img class="lg" src="/images/Capture.PNG" alt=""></a>
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <% pages.forEach(function(page) { %>
+                          <% if (page.slug == "home") { %>
+                              <li><a href="/"><%= page.title %></a></li>
+                        <%} else {%>
+                        <li><a href="/<%= page.slug %>"><%= page.title %></a></li>
+                        <% } %>
+                   <% }); %>
+                   <% if(user) { %>
+                    <li>
+                        <a href="/cart/checkout">My Cart(
+                            <%if(typeof cart !== "undefined") { %>
+                                <%= cart.length %>
+                            <% } else { %>
+                                0
+                                <% } %>
+                        )</a>
+                    </li>
+                    <li>
+                        <a href="/users/logout">Logout</a>
+                    </li>
+                    <% } else { %>
+                   <li>
+                    <a href="/users/register">Login</a>
+                </li>
+                <% } %>
+                </ul>
+            </nav>
+            <% if(user) { %>
+                <a href="/cart/checkout"><img src="/images/cart.jpg" width="60px" height= "60px" class="cart-logo
+                    "></a> 
+                <% } %>
+
+            <img src="/images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+</div>
+
+<!-- <%- messages('messages', locals) %> -->
+
+<div class="small-container single-product">
+    <div class="row">
+        <div class="col2">
+            <img id="product-img" src="/product_images/<%= p.id %>/<%= p.image %>" alt="">
+            <div class="small-img-row">
+                <% galleryImages.forEach(function(image) { %>
+                  <% if(image != "thumbs") { %>
+                <div class="small-img-col">
+                    <!-- <a href="/product_images/<%= p.id %>/gallery/<%= image %>">  -->
+                        <img class="small-img" src="/product_images/<%= p.id %>/gallery/<%= image %>" alt="">
+                    <!-- </a>  -->
+                </div>
+                <!-- <% } %> -->
+                <% }); %>
+            </div>
+        </div>
+        <div class="col2">
+            <p><%= p.category %></p>
+            <h1> <%= p.title %> </h1>
+            <h4> $<%= parseFloat(p.price).toFixed(2) %> </h4>
+            <% if(p.category == 'clothes') { %>
+            <select name="" id="">
+                <option value="">Select size</option>
+                <option value="">XXL</option>
+                <option value="">XL</option>
+                <option value="">L</option>
+                <option value="">Medium</option>
+                <option value="">Small</option>
+            </select>
+            <% } %>
+            <% if(loggedIn) { %>
+                <a href="/cart/add/<%= p.slug %>" class="btn">Add to Cart</a>
+                <% } else { %> 
+                    <p>You must be logged in to purchase items</p>
+                <% } %>
+
+
+            
+            <h3>Product Details</h3>
+            <p> <%=p.desc%> </p>
+        </div>
+    </div>
+</div>
